@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">python高级 | 晓寒</title>
+  
+    <link rel="shortcut icon" href="/images/cover/touxiang.png">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "さくら荘その晓寒";
+  mashiro_option.author_name = "晓寒";
+  mashiro_option.site_url = "";
+  mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+  mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "/images/cover/img1.jpg,/images/cover/img2.jpg,/images/cover/img3.jpg,/images/cover/img4.jpg,/images/cover/img5.jpg,/images/cover/img6.jpg,/images/cover/img7.jpg,/images/cover/img8.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/shehuizhuyi.js"></script><!-- 点击出现爱心 --><script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script><!-- 点击出现彩色气球爆炸效果 --><canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/clickBom.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"> <!-- 这条在sakura中已有，可不添加 --><script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="">
+          <img src="/images/cover/touxiang.png">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>少年金丝裹素衣，临踏九江掘人姬。丹青客中欢喜笑，无人不晓南北西。</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/zcl520linux" target="_blank" class="social-github" title="github">
+                    <img src="/images/icon/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://music.163.com/#/user/home?id=1464460168" target="_blank" class="social-github" title="wangyiyun">
+                    <img src="/images/icon/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/zhao-chuang-le" target="_blank" class="social-github" title="zhihu">
+                    <img src="/images/icon/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="/images/icon/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="/images/icon/weixin.png">
+                  </div>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">さくら荘その</span>
+            <span class="shironeko">晓寒</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    技术
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          前端
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          后端
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          运维
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          剪辑
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          归档
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    生活
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/tags/图集/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(/images/cover/p2.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/cover/p2.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      python高级</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="/images/cover/touxiang.png">
+          </a>
+        </span>
+        <span>
+          <a href="">晓寒</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-12-13<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id><a href="#" class="headerlink" title=" "></a> </h1><h2 id="一-变量赋值"><a href="#一-变量赋值" class="headerlink" title="一. 变量赋值"></a>一. 变量赋值</h2><pre><code>普通变量：
+string01=&#39; &quot;lfy&quot;  &quot;zcl&quot;  &quot;xzj&quot; &#39;                      //字符串内包含双引号                   
+
+string02=&quot; &#39;lfy&#39;  &#39;zcl&#39;  &#39;xzj&#39; &quot;                      //字符串内包含单引号
+
+string03=&#39;&#39;&#39;记得那年                                   //字符串内包含换行
+            如今念你
+            甚是欢喜啊&#39;&#39;&#39;
+
+string04=string05=&quot;赵创乐&quot;                             //多个变量同时赋值
+
+string06,string07,string08=(&quot;zcl&quot;,&quot;lfy&quot;,&quot;xzj&quot;)        //多个变量赋值元组内的指定字符串
+
+string09,*string10,string11(&quot;zcl&quot;,&quot;lfy&quot;,&quot;xzj&quot;)        //*string10表示列表，赋之添加到列表中
+
+string12=(&#39;zcl&#39;,&#39;lfy&#39;,&#39;ycq&#39;),[&#39;zcl&#39;,&#39;lfy&#39;,&#39;ycq&#39;],&quot;zcl lfy ycq&quot;
+string13,string14,string15=string12                   //不同类型同时赋值多个变量
+
+交互变量：
+name=input(&#39;input is you name:  &#39;)
+
+</code></pre><h2 id="二-数据类型："><a href="#二-数据类型：" class="headerlink" title="二. 数据类型："></a>二. 数据类型：</h2><h4 id="（1）数字运算："><a href="#（1）数字运算：" class="headerlink" title="（1）数字运算："></a>（1）数字运算：</h4><pre><code>加法：num01 = 10 + 10
+减法：num02 = 20 - 10
+乘法：num03 = 10 * 10
+除法：num04 = 10 / 2
+次方：num05 = 10 ** 2
+取余：num06 = 7 % 2
+例子：num06 = ( ( ( ( 10 + 10 ) * 6 )  - 7) / 2 ) ** 2
+安装模块：pip install math
+math：可以做一些高级算数计算
+</code></pre><h4 id="（2）字符串："><a href="#（2）字符串：" class="headerlink" title="（2）字符串："></a>（2）字符串：</h4><pre><code>string=&quot;zcl wudide ge&quot;                  //赋值字符串给string
+
+
+--------------------------------改变--------------------------------------
+string.capitalize()                     //将字符串内第一个字母大写
+string.upper()                            //将字符串内所有字母大写
+string.title()                            //将字符串内的单词首字母大写
+string.lower()                            //将字符串内的所有字母小写
+string.swapcase()                        //将字符串内所有字母的大写小写转换
+string.split()                            //将字符串转换为列表，默认以空格和换行为分隔符
+string.split(None,1)                    //只以空格分隔1次
+string.replace(&#39;zcl&#39;,&#39;lfy&#39;,1)           //将字符串中的zcl替换为lfy只替换1次。
+string.rpartition(&#39; &#39;)                    //以空格为分割符，存储在元组内            
+--------------------------------判断--------------------------------------
+string.isalnum()                        //判断字符内是否仅有0-9 a-z A-Z
+string.isalpha()                        //判断字符内是否仅有a-z A-Z
+string.isdigit()                        //判断字符内是否仅有数字
+string.islower()                        //判断字符串内是否仅有小写字符
+string.isupper()                        //判断字符串内是否仅有大写字符
+string.isspace()                        //判断字符串内是否仅有空白字符
+string.istitle()                        //判断字符串内的单词是否首字母大写
+--------------------------------统计获取信息------------------------------------
+string.count(&#39;e&#39;,0,11)                    //统计1到10内的索引字符串内e有多少
+len(string)                             //统计字符串长度
+string.find(&quot;zcl&quot;)                        //获取第一次发现zcl字符串中的z的索引。
+--------------------------------添加字符--------------------------------------
+string.join(&#39;ZZ&#39;)                        //字符首和尾各别添加一个字符
+string.join(&#39;ZZZ&#39;)                      //在前，中，尾各别添加一个字符
+&#39;zcl &#39; + string + &#39;zcl&#39;                 //连接字符串
+string * 3                              //字符串重复3次
+--------------------------------分片--------------------------------------
+string[0]                                //0代表了第一个字符的索引位
+string[-0]                                //-0代表了第一个字符的索引位
+string[-1]                                //-1代表了最后一个字符的索引位
+string[4:8]                                //取第4位到第7位的字符范围，包含第4位但不包含第8位
+string[0:-3]                            //取0位到倒数第3位字符范围的字符，包含第0位但不包含第-3位string[:-3]                       //与string[0:-3]    相同含义
+--------------------------------打印--------------------------------------
+格式化字符串：
+%c：单个字符    %s：字符串    %d：十进制整数    %o：八进制整数    %x：十六进制整数其中字母小写
+name=&#39;you name is %s&#39;                   //字符串中使用%s
+print(name % &#39;zcl&#39;)                     //替换结果为you name is zcl
+&#39;1 %c 1 %c %d&#39; % (&#39;+&#39;,&#39;=&#39;,2)            //替换结果为1 + 1 = 2
+
+str=&#39;zcl&#39;
+print(str.center(8,&#39;*&#39;))                //包含str在内并左右两边添加指定的字符长度。
+----------------------------------------------------------------------
+</code></pre><h4 id="（3）列表-："><a href="#（3）列表-：" class="headerlink" title="（3）列表[ ]："></a>（3）列表[ ]：</h4><pre><code>list=[[&#39;zcl&#39;,&#39;lfy&#39;],[&#39;ycq&#39;,&#39;xzj&#39;]]           特性：列表中的数据可以修改
+
+增：
+list.append(&#39;zcl&#39;)                      //插入一个元素,也可以添加列表和元素
+list.extend(name_list)                    //还有添加另一个列表或元组的元素
+list.insert(3,(&#39;zcl&#39;,&#39;xzj&#39;))            //在指定位置插入元素
+
+删：
+list.pop(&#39;3&#39;)                            //删除指定位置的元素
+list.remove(&#39;zcl&#39;)                        //删除列表中的指定元素的第一位
+
+改：
+list.reverse()                            //颠倒列表的顺序，有数字也可以颠倒
+list.sort()                                //列表按照首字母进行排序，如果有数字则无法排序
+
+查：
+list.count(&#39;zcl&#39;)                        //查看某个元素的次数
+list.index(&#39;zcl&#39;)                        //获取出现第1次元素的索引
+list.index(&#39;zcl&#39;,3)                        //获取出现第3次元素的索引
+list[0]                                    //根据索引取值
+list[0:3]
+
+遍历列表：
+for (x,y) in zip(list01,list02):        //遍历两个列表
+    print(x,y)
+
+
+嵌套列表：
+name = [
+    [&#39;lifeng&#39;,[&#39;name&#39;,&#39;zhaocl&#39;],&#39;ycq&#39;],
+    [1,2,3,4],
+    {&#39;xuzj&#39;: &#39;2222&#39;}
+]
+
+print(name[0][1][0])
+</code></pre><h4 id="（4）元组-："><a href="#（4）元组-：" class="headerlink" title="（4）元组( )："></a>（4）元组( )：</h4><pre><code>tuple=((&#39;zcl&#39;,&#39;wudi&#39;),(&#39;de&#39;,&#39;ge&#39;))               特性：元组的保存数据无法修改
+查：
+tuple[0]                                     //按照索引取值
+tuple[0:3]
+
+遍历元组：
+for (x,y) in tuple:
+    print(x,y)
+</code></pre><h4 id="（5）字典-："><a href="#（5）字典-：" class="headerlink" title="（5）字典{}："></a>（5）字典{}：</h4><pre><code>dic={&#39;zcl&#39;:1,&#39;lfy&#39;:2,&#39;xzj&#39;:3,&#39;yc1&#39;:4,&#39;hz&#39;:5} 含义：key:value形式存储数据
+增：
+dic[&#39;wl&#39;]=6                                    //添加key=wl:value=6的数据
+
+删：
+dic.pop(&#39;lj&#39;,100)                            //删除key，如果不存在返回100，存在则删除后返回对应值
+dic.clear()                                    //清空字典
+
+改：
+dic.update({&#39;zcl&#39;:100})                        //根据key修改对应值,如果不存在key则添加。
+
+查：
+dic.get(&#39;zcl&#39;)                                //根据key获取值
+dic[&#39;zcl&#39;]                                    //根据key获取值
+dic.keys()                                    //获取key的列表
+dic.values()                                //获取value的列表
+dic.items()                                    //获取key和value的列表
+for key,value in dic.items():                //遍历key和value
+    print(key,value)
+
+将两个列表合并为字典
+keys = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+values = [1, 2, 3]
+dictionary = dict(zip(keys, values))
+</code></pre><h4 id="（6）文件open："><a href="#（6）文件open：" class="headerlink" title="（6）文件open："></a>（6）文件open：</h4><pre><code>含义：open(filename, mode, bufsize)  
+filename文件名。    mode可选参数，打开文件的模式。    bufsiz可选参数缓存区大小
+其中mode可以是（r：只读的方式打开文件。 w：以写的方式打开文件。 b：以二进制的方式打开文件）
+
+文件写操作：
+with open(&#39;C:\\Users\Administrator\Desktop&#39;,&#39;w&#39;,encoding=&#39;utf-8&#39;) as f:
+    fp.write(&#39;数据&#39;)
+----------------------------------------------------------------------------    
+file=open(&#39;d:\\log\python.txt&#39;,&#39;w&#39;)            //打开c盘下的python.txt文件，如果没有则创建
+file.write(&#39;python\nLOVE&#39;)                    //向文件中写入字符串
+file.writelines(list)                        //向文件中写入列表
+file.close()                                //关闭打开的文件
+
+
+
+文件读操作：
+file=open(&#39;d:\\log\python.txt&#39;,&#39;r&#39;)
+strin=file.read()                            //读取文件，读完赋值string。
+file.close
+
+file=open(&#39;d:\\log\python.txt&#39;,&#39;r&#39;)
+list=file.readlines()                        //读取文件，将所有数据赋值给列表。
+file.close
+
+file=open(&#39;d:\\log\python.txt&#39;,&#39;r&#39;)
+list=file.readline()                        //读取文件，将第一行数据赋值给列表。
+file.close
+
+
+字典写入文件：
+dic = {
+    &#39;zcl&#39; : 123456,
+    &#39;lfy&#39; : 111111,
+    &#39;xzj&#39; : 456780,
+}
+
+fw = open(&quot;dbs.txt&quot;,&#39;w+&#39;)
+fw.write(str(dic))
+fw.close()
+
+
+从文件中读取字典：
+fr = open(&quot;dbs.txt&quot;,&#39;r+&#39;)
+dic = eval(fr.read())
+print(dic)
+fr.close()
+</code></pre><h2 id="三-判断和循环："><a href="#三-判断和循环：" class="headerlink" title="三.判断和循环："></a>三.判断和循环：</h2><h4 id="（1）if判断："><a href="#（1）if判断：" class="headerlink" title="（1）if判断："></a>（1）if判断：</h4><pre><code>比较运算符：
+a == b     a != b     a &gt; b     a &lt; b     a &gt;= b     a &lt;= b  
+
+布尔运算符：
+and：全部例子        结果          or：全部例子        结果          not：全部例子        结果     
+True  and True     True          True  or True         True        not True           False
+True  and False       False      True  or False     True        not False           True
+False and True       False      False or True         True       嵌套：not not True  True
+False and False       False      False or False     False
+布尔运算优先级：先算not ——&gt; 再算and ——&gt; 再算or
+例子：2 + 2 == 4 and not 2 - 3 == 5 and 2 * 2 == 2 + 2       结果为：True
+
+语法结构：                          嵌套判断：        
+if &lt;条件&gt;:                        if &lt;条件&gt;:
+    语句                                  if &lt;条件&gt;：
+elif &lt;条件&gt;：                                语句
+    语句                                else:
+else:                                      语句
+    语句                            elif &lt;条件&gt;：
+                                      if &lt;条件&gt;
+                                          语句
+                                      &lt;其他语句&gt;        //此语句未缩进，不在嵌套内
+                                  else:
+                                      &lt;语句&gt;
+</code></pre><h4 id="（2）for循环："><a href="#（2）for循环：" class="headerlink" title="（2）for循环："></a>（2）for循环：</h4><pre><code class="t">语法结构：     for循环特性：测试为真的时候停止循环。
+for &lt;&gt; in &lt;对象集合&gt;:
+    if &lt;条件&gt;:
+        break                    //break终止循环
+    if &lt;条件&gt;:
+        continue                //continue跳过后面的所有语句，重头开始继续循环
+    &lt;其他语句&gt;
+else:                            //for循环未被break终止则执行else中的语句块
+    &lt;语句&gt;
+
+name = &#39;[zcl,lfy,xzj,cxk]&#39;
+print(&#39;zcl&#39; in name)   //等于True         
+print(&#39;hz&#39; in name)    //列表中没有hz，所以等于false。
+
+</code></pre>
+<h4 id="（3）while循环："><a href="#（3）while循环：" class="headerlink" title="（3）while循环："></a>（3）while循环：</h4><pre><code>语法结构：     while循环特性：测试为假得时候停止循环，所以在循环时我们要避免一直为真。
+while &lt;条件&gt;:            
+    if &lt;条件&gt;:    
+        break                //终止循环
+    if &lt;条件&gt;:
+        continue            //跳过后面的语句
+    &lt;其他语句&gt;
+else:
+    &lt;语句&gt;
+
+while遍历一个列表：
+list = [&#39;zcl&#39;,&#39;lfy&#39;,&#39;ycq&#39;,&#39;xzj&#39;,&#39;hz&#39;]
+num = len(list)
+while num != 0:
+    print(list[-num])        //-num表示开头第一个索引位开始
+    num = num - 1            //控制不让循环一直为真
+</code></pre><h2 id="四-函数："><a href="#四-函数：" class="headerlink" title="四. 函数："></a>四. 函数：</h2><h4 id="（1）函数的基本概念："><a href="#（1）函数的基本概念：" class="headerlink" title="（1）函数的基本概念："></a>（1）函数的基本概念：</h4><pre><code>  1.函数就是为了方便我们维护代码以及固定代码块功能的重复使用，实际上就是一堆代码的集合，有了函数我们的开发效率也大大的提升，有太多太多好处了，我就不一一介绍了。
+  2.函数有实参和形参的说法，并且只能实参向形参传递数据。
+  3.形参概念：形参分为必选参数和默认参数，必选参数必须在默认参数的前面
+  4.可变长参数：是任意多个参数，参数传递后会保存在一个元组中，可以通过for循环遍历处理,通过*参数名来定义。
+</code></pre><h4 id="（2）函数形参和实参："><a href="#（2）函数形参和实参：" class="headerlink" title="（2）函数形参和实参："></a>（2）函数形参和实参：</h4><pre><code>函数的整体形式：              //其中形参列表和返回值不是必须出现。
+def &lt;函数名&gt;(形参列表):      //必选参数和默认参数例子：  def zcl(name,age=17):     
+    &lt;函数语句块&gt;               //可变长参数例子：def zcl( *tuple )
+    return &lt;返回值&gt;
+
+函数调用：                     
+&lt;函数名&gt;（实参）              //实参传递为了代码可读性可以这样写：zcl(name=zhaoge,age=18)
+
+三元表达式：
+条件为真返回结果 if 条件判断 else 条件为假返回结果
+
+
+lambda匿名函数：表达式                 //通常结合三元表达式使用
+例子：fun = lambda x,y : x if x &gt; y else y          
+调用：fun(100,20)
+其他玩法： fun = lambda : 函数()
+
+作用域：
+全局作用域：编写的整个脚本，例如一个变量的定义,可以在函数体内运行。
+局部作用域：函数内的变量就是局部变量，只能作用于单个函数体内。 可以通过global将局部变量转为全局变量。
+
+</code></pre><h4 id="（3）高阶函数和装饰器："><a href="#（3）高阶函数和装饰器：" class="headerlink" title="（3）高阶函数和装饰器："></a>（3）高阶函数和装饰器：</h4><pre><code>map函数结合lambda可以使代码更加的简洁：
+list_x = [1, 2, 3]
+list_y = [1, 2, 3]
+num = map(lambda x,y : x * x + y, list_x, list_y)
+print(list(num)
+
+from functools import reduce                              //reduce实现连续调用lambda的作用。
+list_x = [&#39;1&#39;,&#39;2&#39;,&#39;3&#39;]
+list = reduce(lambda x,y : x + y, list_x, &#39;zcl&#39;)
+print(list)
+
+list_x = [&#39;a&#39;,&#39;b&#39;,&#39;a&#39;,&#39;b&#39;]
+r = filter(lambda x : False if x == &#39;a&#39; else True,list_x)    //filter实现集合的过滤
+print(list(r))
+
+python内置小函数：
+max()：查看最大值
+min()：查看最小值
+len()：统计元素的和
+
+-------------------------------装饰器---------------------------------
+产品经理需求：1. 超过20点不能玩游戏，如果没告诉时间则不能玩游戏。
+装饰器的作用是不改变原有功能代码的基础上添加新的功能。
+def time_control(fn):
+    def Time_judgment(name,gaem,*args,**kwargs):
+        clock = kwargs.get(&#39;clock&#39;,21)
+        if clock &lt;= 20:
+            fn(name,gaem)
+        else:
+            print(&#39;晚上超过8点不能玩游戏哦！！！&#39;)
+
+    return Time_judgment
+
+@time_control
+def play_gaem(name,gaem):
+    print(&#39;{}玩的游戏是{}&#39;.format(name,gaem))
+
+play_gaem(&#39;赵创乐&#39;,&#39;王者荣耀&#39;)
+play_gaem(&#39;李凤英&#39;,&#39;英雄联盟&#39;,clock=8)
+
+</code></pre><h2 id="五-类和面向对象："><a href="#五-类和面向对象：" class="headerlink" title="五. 类和面向对象："></a>五. 类和面向对象：</h2><h4 id="（1）面向对象概述："><a href="#（1）面向对象概述：" class="headerlink" title="（1）面向对象概述："></a>（1）面向对象概述：</h4><pre><code>  面向对象的思想，实际上是将现实世界的事物，在电脑世界里进行细微的拆分，并最可能的贴合人类的思维方式，在python中创建一个类就等于创建一个模板，而我们可以通过这个模板可以创建不同的对象，但总的来说这些对象还是属于一大类型，并且不同的类所产生的对象实际上都是相关联的，面向对象的3大特性：封装性，继承性，多态性。
+</code></pre><h4 id="（2）类变量和实例变量："><a href="#（2）类变量和实例变量：" class="headerlink" title="（2）类变量和实例变量："></a>（2）类变量和实例变量：</h4><pre><code>class Human(object):                                   //创建一个父类
+    SUM = 0                                               //类变量
+    __list = []                                           //_list：表示私有变量,外部无法调用。
+
+    def __init__(self,name=&#39;赵创乐&#39;,age=18):              //__init__：构造函数，用于初始化属性。
+        self.name = name                               //实例变量
+        self.age  = age
+
+    def Printsum(self):                              //推荐修改成类方法
+        Human.SUM = Human.SUM + 1
+        print(f&#39;当前总异能人数：{self.__class__.SUM}&#39;)  //访问类变量，第一种方法 
+        #print(f&#39;当前总异能人数：{Human.SUM}&#39;)            //访问类变量，第二种方法
+
+
+H1 = Human(&#39;蜘蛛侠&#39;,100)                               //实例化创建第一个对象
+print(H1.__dict__)                                     //查看H1内的数据
+H1.Printsum()                                         //调用实例方法
+print(&#39;-----------------------------&#39;)
+H2 = Human(&#39;钢铁侠&#39;,200)                               //实例化创建第二个对象
+print(H2.__dict__)                                     //查看H2内的数据
+H2.Printsum()                                        //调用实例方法
+</code></pre><h4 id="（3）类方法-静态方法："><a href="#（3）类方法-静态方法：" class="headerlink" title="（3）类方法/静态方法："></a>（3）类方法/静态方法：</h4><pre><code>@classmethod                                        //定义一个类方法，类方法中适合访问类变量。
+def Printsum(cls):
+    cls.sum = cls.sum + 1
+    print(f&#39;当前总异能人数：{cls.sum}&#39;) 
+
+@staticmethod                                        //定义一个静态方法，不推荐使用。
+def add(x,y):
+    pass
+</code></pre><h4 id="（4）类的继承性："><a href="#（4）类的继承性：" class="headerlink" title="（4）类的继承性："></a>（4）类的继承性：</h4><pre><code>第一个脚本：
+human.py
+class HuMan:
+    pass
+
+_________________________________________________________________________________________
+第二个脚本：
+student.py
+from human import HuMan                                //继承human脚本中封装的类。
+class StuDent(HuMan)
+    pass
+
+提示：子类可以通过super关键字调用父类的构造函数
+注：python支持多继承父类，一般其他编程语言只支持单继承，这使得python更加灵活。
+
+</code></pre><h2 id="六-模块："><a href="#六-模块：" class="headerlink" title="六. 模块："></a>六. 模块：</h2><h4 id="（1）模块操作："><a href="#（1）模块操作：" class="headerlink" title="（1）模块操作："></a>（1）模块操作：</h4><pre><code>  1. 模块是包含了函数和其他语句的脚本文件，*.py后缀名，在python中我们可以通过导入模块，来使用模块中的函数或者数据。
+  2.导入模块3种方式：
+      import 模块名
+      import 模块名 as 别名
+      from 模块名 import 函数名
+小提示：使用import导入模块，如果要使用函数必须要在前面加上模块名，而from导入函数，可以直接调用。
+</code></pre><h4 id="（2）time-random-os-sys-json-pickle-csv-glob模块："><a href="#（2）time-random-os-sys-json-pickle-csv-glob模块：" class="headerlink" title="（2）time,random,os,sys,json,pickle,csv,glob模块："></a>（2）time,random,os,sys,json,pickle,csv,glob模块：</h4><pre><code>import time
+time.time()                                    //获取时间秒数
+time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)             //按照指定格式输出时间
+time.asctime()                                //美式输出时间，传入的是元组。
+time.ctime()                                //美式输出时间，传入的是时间戳。
+print(&#39;hello&#39;)
+print(time.sleep(10))                        //让线程暂停10秒钟
+print(&#39;world&#39;)
+--------------------------------------------------------------------------------
+import random                                //random用来生成一个随机数。
+random.randint(a,b)                            //用来生成a到b的随机整数。
+random.randrange(a,b)                        //用来生存a到b的随机整数，不包含b。
+random.random()                                //用来生成0到1的随机浮点数。
+random.choice([&#39;a&#39;,&#39;c&#39;,&#39;l&#39;,&#39;b&#39;])            //在可迭代对象中随机抽取一个数据。
+random.sample([&#39;a&#39;,&#39;c&#39;,&#39;l&#39;,&#39;b&#39;],2)            //在可迭代对象中随机抽取2个数据。
+
+--------------------------------------------------------------------------------
+import os                                    //导入OS模块
+os.getcwd()                                    //获取当前路径
+os.name                                      //获取操作系统的名字，win=nt,非nt=posix
+os.chdir(&#39;c://&#39;)                            //移动到指定路径
+os.rename(&#39;数据表.txt&#39;,&#39;data.txt&#39;)           //文件重命名
+os.remove(&#39;data.txt&#39;)                       //删除文件
+os.mkdir(&#39;logs&#39;)                            //创建文件夹
+os.rmdir(&#39;logs&#39;)                            //删除空文件夹
+os.removedirs(&#39;logs&#39;)                        //删除空文件夹
+os.listdir(&#39;c://&#39;)                            //列出目录中的文件和文件夹。
+os.environ                                    //获取环境变量
+os.environ.get(&#39;PATH&#39;)                      //获取指定环境变量
+os.system(&#39;dir&#39;)                            //执行操作系统命令
+os.path.abspath(path)                        //获取文件的绝对路径
+os.path.exists(path)                        //判断文件和目录是否存在
+os.path.isdir(path)                            //判断是否是目录
+os.path.isfile(path)                        //判断是否是文件
+os.path.splitext(path)                        //获取文件名并存储在元组中
+--------------------------------------------------------------------------------
+import sys                                    //导入sys模块
+sys.version                                    //获取python解释器的版本信息。
+sys.exit()                                    //程序退出，和内置的exit函数功能一致。
+sys.path                                    //查找模块路径，结果是一个列表。
+sys.stdin                                    //标准输入，接受用户的输入和input一样。
+sys.stdout                                    //标准输出，可以改变默认输出位置。
+sys.stderr                                    //错误输出，可以改变默认的错误输出位置。
+sys.argv[0]                                    //获取命令行参数，默认保存在列表内。
+--------------------------------------------------------------------------------
+json序列化和反序列化：
+python里数据存入文件只支持字符串和二进制。  主要作用：用于不同平台之间传输数据。
+json可以将python里的数据（str/list/tuple/dict/int/float/bool/none）等转换为json数据，然后存入文件当中，读取文件时在将数据反序列化为python数据的某个类型。
+import json                                    //导入json模块
+json.dumps(name)                            //将数据转换成json字符串，不会保存到文件。
+json.dump(name,file)                        //将数据转换为json字符串，并保存到指定文件。
+json.loads(x)                                //将json字符串转换为python数据。
+json.load(file)                                 //读取文件，将读取的内容转换为python数据
+
+--------------------------------------------------------------------------------
+pickle序列化和反序列化：         主要作用：将数据原封不动的转换为二进制存储，只能在python中识别。
+python里数据存入文件只支持字符串和二进制。
+pickle可以将python里的数据（str/list/tuple/dict/int/float/bool/none）等转换为二进制数据。
+import pickle                                //导入pickle模块
+pickle.dumps(name)                            //将数据转换成二进制，不会保存到文件。
+pickle.dump(name,file)                        //将数据转换为二进制，并保存到指定文件。
+pickle.loads(x)                                //将二进制转换为python数据。
+pickle.load(file)                            //读取文件，将读取的内容转换为python数据
+
+————————————————————————————————————————例子----------------------------------------
+import pickle
+
+if __name__ == &#39;__main__&#39;:
+    host_ip = [[&#39;10.0.0.100&#39;,&#39;root&#39;,&#39;123456&#39;],[&#39;10.0.0.100&#39;,&#39;root&#39;,&#39;123456&#39;]]
+
+    with open(&#39;C:\\Users\\Administrator\\Desktop\\data.txt&#39;,&#39;wb&#39;) as f:
+        pickle.dump(host_ip, f)
+        f.close()
+
+    with open(&#39;C:\\Users\\Administrator\\Desktop\\data.txt&#39;,&#39;rb&#39;) as f:
+        data = pickle.load(f)
+        print(data)
+————————————————————————————————————————--------------------------------------
+                                csv模块
+
+import csv
+headers = [&#39;class&#39;,&#39;name&#39;,&#39;sex&#39;,&#39;height&#39;,&#39;year&#39;]
+
+rows = [
+        [1,&#39;xiaoming&#39;,&#39;male&#39;,168,23],
+        [1,&#39;xiaohong&#39;,&#39;female&#39;,162,22],
+        [2,&#39;xiaozhang&#39;,&#39;female&#39;,163,21],
+        [2,&#39;xiaoli&#39;,&#39;male&#39;,158,21]
+    ]
+
+with open(&#39;C:\\Users\Administrator\Desktop\data.csv&#39;,&#39;w&#39;,newline=&#39;&#39;)as f:
+    f_csv = csv.writer(f)
+    f_csv.writerow(headers)
+    f_csv.writerows(rows)
+————————————————————————————————————————--------------------------------------
+import glob                    //该模块可以正则查询目录下的文件，类似linux find命令。
+for name in glob.glob(&#39;*/a*.txt&#39;)
+    print(name)
+
+</code></pre><h4 id="（3）re模块："><a href="#（3）re模块：" class="headerlink" title="（3）re模块："></a>（3）re模块：</h4><pre><code>re匹配和搜索功能：
+模式：re.findall(pattern,string,flags)       翻译：匹配模式，字符串，可选参数。
+import re                                    //导入re模块
+re.match()                                    //使用正则表达式匹配string字符串，有返回matchobject
+re.search()                                    //用于在string字符串中查找正则表达式,同上。
+re.findall()                                //显示符合正则表达式的字符串，并添加到列表。
+
+可选参数：
+re.I                                        //忽略大小写
+
+例子：
+string=&#39;WUdiDEge&#39;
+re.findall(&#39;wu..d.&#39;,string,re.I)
+
+re匹配和替换功能：
+模式：re.sub(pattern,repl,string,count)     翻译：匹配模式，替换的内容，字符串，可选参数可替换几次。
+re.sub()                                    //显示替换后的结果,string类型。
+re.subn()                                    //显示替换后的结果,tuple类型。
+
+例子：
+string=&#39;WUdiDEgeWU&#39;
+re.sub(&#39;WU&#39;,&#39;ZCL&#39;,string,1)
+
+re分隔字符串功能：
+模式：re.split(pattern,string,maxsplit=0)    翻译：匹配模式，字符串，最大分隔次数。
+re.split()                                    //分隔字符串后内容添加到列表中。
+
+例子：
+string=&#39;WU di DE ge&#39;
+re.split(&#39; &#39;,string)
+</code></pre><h4 id="（4）prettytable模块："><a href="#（4）prettytable模块：" class="headerlink" title="（4）prettytable模块："></a>（4）prettytable模块：</h4><pre><code>from prettytable import PrettyTable
+table = PrettyTable()                                        //声明一个表格，可以直接添加标题
+table.field_names = [&quot;Id&quot;,&quot;姓名&quot;,&quot;年龄&quot;]                        //添加标题数据
+name = (&#39;zcl&#39;,&#39;lfy&#39;,&#39;ycq&#39;,&#39;xzj&#39;,&#39;hz&#39;,&#39;sc&#39;,&#39;wl&#39;,&#39;lj&#39;)        
+age  = (&#39;19&#39;,&#39;28&#39;,&#39;19&#39;,&#39;18&#39;,&#39;25&#39;,&#39;19&#39;,&#39;23&#39;,&#39;23&#39;)
+
+ID = 0
+for NAME,AGE in zip(name,age):
+    ID += 1
+    table.add_row([ID, NAME, AGE])                            //添加数据内容
+    table.align = &#39;l&#39;                                        //所有数据左对齐
+  # table.align[&quot;姓名&quot;] = &#39;c&#39;                                   //指定某个标题下数据居中
+                                                            //l:左    c:中       r:右
+print(table.get_string(start=0,end=3))                        //打印前3行
+</code></pre><h4 id="（5）colorama模块："><a href="#（5）colorama模块：" class="headerlink" title="（5）colorama模块："></a>（5）colorama模块：</h4><pre><code>from colorama import init,Fore,Back,Style            //Fore字体颜色,Back背景颜色,Style字体格式
+init(convert=True)                                    
+print(Fore.YELLOW + &#39;赵创乐&#39; + Fore.RESET)
+print(Fore.RED + &#39;赵创乐&#39; + Fore.RESET)
+</code></pre><h4 id="（6）argparse模块："><a href="#（6）argparse模块：" class="headerlink" title="（6）argparse模块："></a>（6）argparse模块：</h4><pre><code>import argparse
+
+parser = argparse.ArgumentParser(description=&#39;Calculate the volume of a cylinder&#39;)   
+介绍:  创建一个解析对象parser,实际是装载命令参数的容器,description是描述信息。
+
+#1.默认参数
+parser.add_argument(&#39;radius&#39;, type=int, help=&#39;radius of cylinder&#39;)   //添加命令参数
+parser.add_argument(&#39;height&#39;, type=int, help=&#39;height of cylinder&#39;)   //添加命令参数
+介绍：raidus和height是命令参数，type表示传入的数据类型，help描述传入的数据   
+
+#2.可选参数
+parser.add_argument(&#39;-R&#39;,&#39;--radius&#39;, type=int,metavar=&#39;&#39;, help=&#39;radius of cylinder&#39;)   
+parser.add_argument(&#39;-H&#39;,&#39;--height&#39;, type=int,metavar=&#39;&#39;, help=&#39;height of cylinder&#39;)
+介绍：-R 是短选项，--radius长选项，metavar=&#39;&#39;优化-h显示的信息，--required=True如果少传入一个参数会有报错提示。
+
+#3.互斥参数
+
+
+
+args = parser.parse_args()                                             
+
+def cylinder_volume(radius, height):                                //计算公式函数
+    vol = (math.pi) * (radius ** 2) * (height)
+    return vol
+
+if __name__ == &#39;__main__&#39;:
+    print(cylinder_volume(args.radius, args.height))                //主函数调用
+</code></pre><h4 id="（7）paramiko模块："><a href="#（7）paramiko模块：" class="headerlink" title="（7）paramiko模块："></a>（7）paramiko模块：</h4><pre><code>---------------------------------连接linux主机并执行命令-----------------------------
+import paramiko
+#创建SSH对象
+ssh = paramiko.SSHClient()
+# 允许连接不在know_hosts文件中的主机
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+# 连接服务器
+ssh.connect(hostname=&#39;192.168.2.103&#39;, port=22, username=&#39;root&#39;, password=&#39;123456&#39;)
+
+# 执行命令
+stdin, stdout, stderr = ssh.exec_command(&#39;ls&#39;)
+# 获取命令结果
+result = stdout.read()
+print (str(result,encoding=&#39;utf-8&#39;))
+# 关闭连接
+ssh.close()
+
+
+----------------------------在windows上下载linux上的日志文件-------------------------
+import paramiko
+def remote_scp(host_ip, remote_path, local_path, username, password):
+    t = paramiko.Transport((host_ip, 22))
+    t.connect(username=username, password=password)
+    sftp = paramiko.SFTPClient.from_transport(t)
+    src = remote_path
+    des = local_path
+    sftp.get(src, des)
+    t.close()
+
+if __name__ == &#39;__main__&#39;:
+    host_ip = &#39;192.168.100.203&#39;
+    remote_path = &#39;/var/log/system.log&#39;
+    local_path = r&#39;E:\system.log&#39;
+    username = &#39;root&#39;
+    password = &#39;123123&#39;
+    remote_scp(host_ip, remote_path, local_path, username, password)
+
+
+
+----------------------------将windows上的文件上传到linux------------------------- 
+import paramiko
+import sys
+
+src_file = sys.argv[1]
+dsc_path = sys.argv[2]
+ssh = paramiko.SSHClient() # 创建SSH对象
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())# 允许连接不在know_hosts文件中的主机
+transport = paramiko.Transport((&#39;192.168.100.203&#39;, 22))
+transport.connect(username=&#39;root&#39;, password=&#39;lxzluw&#39;) # 连接服务器
+
+def upload():
+  sftp = paramiko.SFTPClient.from_transport(transport)
+  try:
+    sftp.put(src_file, dsc_path + &#39;/&#39; + src_file)
+    print(&#39;上传成功&#39;)
+  except Exception as e:
+    print(e)
+  ssh.close()
+
+if __name__ == &#39;__main__&#39;:
+  upload()
+
+---------------------------------批量检测linux登录密码------------------------------
+import paramiko
+import os
+import multiprocessing
+import time
+passwd=[&#39;123456&#39;,
+        &#39;123123&#39;,
+        &#39;666666&#39;,
+        &#39;4rsdsds&#39;,
+        &#39;sdsffss&#39;,
+       ]
+strart_time = time.time()
+def ssh_client(host,Passwd):
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    try:
+        ssh.connect(hostname=host,port=22,username=&quot;root&quot;,password=Passwd,timeout=3)
+        print(&quot;{}登录成功，密码是{}&quot;.format(host,Passwd))
+    except Exception as e:
+        print(&quot;Error：{} [{},尝试的密码是{}]&quot;.format(e,host,Passwd))
+    ssh.close()
+
+def main():
+    with open(&#39;{}/ip.txt&#39;.format(os.path.dirname(os.path.abspath(__file__)),&#39;r&#39;,encoding=&quot;utf-8&quot;)) as F:
+        ip_list = [x.strip(&#39;\n&#39;) for x in F.readlines()]
+        po = multiprocessing.Pool(len(ip_list))
+        for x in ip_list:
+            for y in passwd:
+                po.apply_async(ssh_client,(x,y))
+        po.close()
+        po.join()
+        print (&quot;TimeUsed:{}&quot;.format(time.time()-strart_time))
+
+if __name__ == &#39;__main__&#39;:
+    main()
+</code></pre><h4 id="（8）requests模块："><a href="#（8）requests模块：" class="headerlink" title="（8）requests模块："></a>（8）requests模块：</h4><pre><code>介绍：requests网络请求工具
+爬虫使用流程：1.指定url 2.发送请求参数 3.获取响应数据 4.持久化存储数据 5.数据图形化展示。
+import requests
+url = &#39;http://www.sogo.com/&#39;
+response = requests.get(url=url)
+data = response.text
+with open(&#39;C:\\Users\Administrator\Desktop\data.html&#39;,&#39;w&#39;,encoding=&#39;utf-8&#39;) as f:
+    f.write(data)
+print(&#39;爬取完毕！！！&#39;)
+</code></pre><h4 id="（9）python加密模块："><a href="#（9）python加密模块：" class="headerlink" title="（9）python加密模块："></a>（9）python加密模块：</h4><pre><code>-----------------------------------base64--------------------------------------------
+base64加密：
+# 想将字符串转编码成base64,要先将字符串转换成二进制数据
+url = &quot;https://www.cnblogs.com/songzhixue/&quot;
+bytes_url = url.encode(&quot;utf-8&quot;)
+str_url = base64.b64encode(bytes_url)  # 被编码的参数必须是二进制数据
+print(str_url)
+
+b&#39;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc29uZ3poaXh1ZS8=&#39;
+复制代码
+解码base64#
+复制代码
+
+
+base64解码：
+import base64
+url = &quot;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc29uZ3poaXh1ZS8=&quot;
+str_url = base64.b64decode(url).decode(&quot;utf-8&quot;)
+print(str_url)
+
+&#39;https://www.cnblogs.com/songzhixue/&#39;
+---------------------------------------------------------------------------------------
+
+---------------------------hashlib--------------------------------------------
+hashlib支持md5和sha加密：
+加密方式：单项加密：md5/sha,只有加密过程不能解密。   双向加密     非对称加密：rsa
+import hashlib
+x = hashlib.md5(&#39;赵创乐&#39;.encode())
+print(x.hexdigest())
+
+h1 = hashlib.sha1(&#39;123456&#39;.encode())
+print(h1.hexdigest())
+h2 = hashlib.sha224(&#39;123456&#39;.encode())
+print(h2.hexdigest())
+h3 = hashlib.sha256(&#39;123456&#39;.encode())
+print(h3.hexdigest())
+</code></pre><h2 id="七-编程小技巧："><a href="#七-编程小技巧：" class="headerlink" title="七. 编程小技巧："></a>七. 编程小技巧：</h2><h4 id="（1）列表-字典-集合根据条件筛选数据："><a href="#（1）列表-字典-集合根据条件筛选数据：" class="headerlink" title="（1）列表/字典/集合根据条件筛选数据："></a>（1）列表/字典/集合根据条件筛选数据：</h4><pre><code>列表：
+import random import randint
+data = [randint(-10,10) for _ in range(10)
+size01 = filter(lambda x: x &gt;= 0, data)                        //效率块一些
+size02 = [x for x in data if x &gt;=0]                            //性能最好，是上一个的一倍
+print(size01,size02)
+
+字典：
+data = {x: randint(60,100) for x in range(1,21)}
+size = {key: value for key,value in data.items() if v &gt; 90}
+print(size)
+
+集合：
+data = set([randint(-10,10) for _ in range(10)])
+size = {x for x in data if x % 3 == 0}
+
+</code></pre><h4 id="（2）命名-统计-字典："><a href="#（2）命名-统计-字典：" class="headerlink" title="（2）命名/统计/字典："></a>（2）命名/统计/字典：</h4><pre><code>一. 命名优化，程序可读性更好:
+第一种方法：
+name,age,email = range(3)                
+size = (&#39;zcl&#39;,&#39;18&#39;,&#39;zcl_mx@163.com&#39;)
+if size[name] == &#39;zcl&#39;:
+if size[age] == &#39;18&#39;:
+if size[email] == &#39;zcl_mx@163.com&#39;:
+
+第二种方法：
+from collections import namedtuple
+Student = namedtuple(&#39;Student&#39;,[&#39;name&#39;,&#39;age&#39;,&#39;email&#39;])
+s = Student(&#39;zcl&#39;,18,&#39;zcl_mx@163.com&#39;)
+print(s.name, s.age, s.email)
+
+二. 统计序列中元素出现的频度：
+data = [&#39;zcl&#39;,&#39;lfy&#39;,&#39;zcl&#39;,&#39;ycq&#39;,&#39;xzj&#39;]
+size = dict.fromkeys(data,0)                      //统计到字典当中
+for x in data:
+    size[x] += 1
+print(size)
+
+三. 取头部和尾部的值：
+name = [&#39;zcl&#39;,&#39;lfy&#39;,&#39;ycq&#39;,&#39;xzj&#39;]
+head,*_,tail = name
+print(head,tail)
+</code></pre><p>​            </p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="/images/cover/touxiang.png" itemprop="image" alt="晓寒" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">晓寒</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 hojun<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2020</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>  <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);"></a><a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);"> </a> </a>
+        </span>
+      </p>
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script>
+	  var now = new Date();
+	  function createtime() {
+		var grt= new Date("12/12/2020 16:44:00");//此处修改你的建站时间或者网站上线时间
+		now.setTime(now.getTime()+250);
+		days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+		hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+		if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+		mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+		seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+		snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+		document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+		document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+	  }
+	  setInterval("createtime()",250);</script>
+	  
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="/images/cover/touxiang.png">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">さくら荘その晓寒</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/zcl520linux" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/mashirozx?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://user.qzone.qq.com/2783860283" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            技术
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  前端
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  后端
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  运维
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  剪辑
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  归档
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            生活
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/图集/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2660651585"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>
