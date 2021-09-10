@@ -4076,31 +4076,32 @@ li.feature-2 {
     color:#2c3e50
 }
 .header-info {
-    width:63%;
-    margin:auto;
-    font-size:16px;
-    color:#eaeadf;
-    background:rgba(0,0,0,.5);
-    padding:15px;
-    margin-top:22px;
-    letter-spacing:0;
-    line-height:30px;
-    border-radius:10px;
-    box-sizing:initial;
-    white-space:nowrap
+    width: 63%;
+    margin: auto;
+    font-size: 16px;
+    color: #eaeadf;
+    background: rgba(255,255,255,.8);
+    padding: 15px;
+    margin-top: 22px;
+    letter-spacing: 0;
+    line-height: 30px;
+    border-radius: 10px;
+    box-sizing: initial;
+    white-space: nowrap;
 }
 .header-info:before {
-    content:"";
-    position:absolute;
-    top:127px;
-    left:50%;
-    margin-left:-15px;
-    border-width:15px;
-    border-style:solid;
-    border-color:transparent transparent rgba(0,0,0,.5) transparent
+    content: "";
+    position: absolute;
+    top: 127.5px;
+    left: 50%;
+    margin-left: -15px;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent rgba(255,255,255,.8) transparent;
 }
 .header-info p {
     margin:0;
+    color: #605f5f;
     font-family:'Ubuntu',sans-serif;
     font-weight:700
 }
